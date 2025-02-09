@@ -120,8 +120,8 @@ class AppBar extends HTMLElement {
     this.shadowRoot.innerHTML = `
       <style>
         header {
-          background-color: #4CAF50;
-          color: white;
+          background-color: #A9B5DF;
+          color: #2D336B;
           padding: 1rem;
           text-align: center;
           box-shadow: 0 2px 4px rgba(0,0,0,0.1);
@@ -160,7 +160,7 @@ class NoteItem extends HTMLElement {
     this.shadowRoot.innerHTML = `
       <style>
         .note {
-          background-color: #fff;
+          background-color: #FFF2F2;
           border: 1px solid #ddd;
           border-radius: 8px;
           padding: 1rem;
@@ -211,7 +211,7 @@ class NoteForm extends HTMLElement {
           padding: 1rem;
           border: 1px solid #ddd;
           border-radius: 8px;
-          background-color: #fff;
+          background-color: #FFF2F2;
           box-shadow: 2px 2px 5px rgba(0,0,0,0.05);
         }
         label {
@@ -230,14 +230,14 @@ class NoteForm extends HTMLElement {
           padding: 0.5rem;
           border: none;
           border-radius: 4px;
-          background-color: #4CAF50;
+          background-color: #7886C7;
           color: white;
           font-size: 1rem;
           cursor: pointer;
           margin-top: 0.5rem;
         }
         button:hover {
-          background-color: #45a049;
+          background-color: #2D336B;
         }
         .error {
           color: red;
@@ -260,6 +260,7 @@ class NoteForm extends HTMLElement {
       </form>
     `;
   }
+
   connectedCallback() {
     const form = this.shadowRoot.getElementById("noteForm");
     const titleInput = this.shadowRoot.getElementById("title");
@@ -275,6 +276,7 @@ class NoteForm extends HTMLElement {
         titleError.textContent = "";
       }
     });
+
     // Realtime Validation untuk input isi catatan
     bodyInput.addEventListener("input", () => {
       if (bodyInput.value.trim() === "") {
@@ -312,14 +314,14 @@ class NoteForm extends HTMLElement {
           detail: newNote,
           bubbles: true,
           composed: true,
-        })
-      );
+      }));
 
       // Reset formulir
       form.reset();
     });
   }
 }
+
 customElements.define("note-form", NoteForm);
 
 /* ========================
